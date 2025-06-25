@@ -63,6 +63,6 @@ python3 run.py
 #### Run the frontend 
 Go to book_store_frontend file path, run 
 ```shell 
-python3 run.py 
+npm run dev
 ``` 
-Just open the link to the browser      
+Just open the link(默认 http://localhost/3000) to the browser      
