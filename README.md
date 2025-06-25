@@ -1,4 +1,6 @@
-# Integrated Management and Intelligent Service Platform for Book Sales    
+<h1 align="center">
+Integrated Management and Intelligent Service Platform for Book Sales    
+</h1>
 
 <div align="center">
 
