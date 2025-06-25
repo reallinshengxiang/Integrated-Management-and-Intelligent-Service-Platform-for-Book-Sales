@@ -1,0 +1,15 @@
+
+@import "homeHeaderBar.scss";
+
+@import "loginHeaderBar.scss";
+
+@import "menuBar.scss";
+
+@import "footer.scss";
+
+
+$home-mixin-bg:#f1f1f1;
+
+@mixin home-main{
+  background-color: $home-mixin-bg;
+}

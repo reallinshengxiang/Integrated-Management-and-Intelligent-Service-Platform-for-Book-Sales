@@ -1,0 +1,27 @@
+
+$menu-bar-bg: #84a6ec;
+$menu-bar-fg: #3a3a3a;
+
+$menu-bar-title-fg: #ffffff;
+
+@mixin menu-logo{
+    color: $menu-bar-title-fg;
+    font:{
+        size: 20px;
+        weight: bold;
+    }
+
+}
+
+@mixin menu-bar{
+    background-color: $menu-bar-bg;
+    color: $menu-bar-fg;
+}
+
+@mixin menu-item{
+
+    &:hover{
+        background-color: rgba(0,0,0,.05);
+    }
+
+}

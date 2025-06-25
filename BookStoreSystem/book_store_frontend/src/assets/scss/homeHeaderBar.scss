@@ -1,0 +1,34 @@
+
+$home-header-bar-bg: #fffffff5;
+$home-header-bar-fg:#1a1a1a;
+
+$home-header-title-fg:#888888;
+
+$home-header-text-fg:  #f78989;
+$home-header-text-fg-hover: #f7898999;
+
+@mixin home-header-bar{
+  background-color: $home-header-bar-bg;
+  color: $home-header-bar-fg;
+}
+
+@mixin home-header-title{
+  color: $home-header-title-fg;
+  font:{
+    size: 30px;
+    weight: bold;
+  }
+  border-bottom: {
+    style: solid;
+    color: #535bf2;
+    width: 4px;
+  }
+}
+
+@mixin home-header-text{
+  color: $home-header-text-fg;
+  &:hover{
+    color: $home-header-text-fg-hover;
+  }
+}
+
