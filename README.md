@@ -1,5 +1,9 @@
 # Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales   
-![GitHub repo size](https://img.shields.io/github/repo-size/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)    
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+
+Deepseek-V3 token获取方式：进入https://github.com/marketplace/models/azureml-deepseek/DeepSeek-V3-0324，点击Use this model，即可获取token，然后在BookStoreSystem/book_store_backend/app/service/user_service.py里面的
+```shell
+def deepseek_response(user_input):
+    os.environ["GITHUB_TOKEN"] = "*"
+    token = os.environ["GITHUB_TOKEN"] 
+```    
+将"*"换成获取的token即可
