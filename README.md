@@ -1,5 +1,9 @@
 # Integrated Management and Intelligent Service Platform for Book Sales   
-
+<div align="center">
+[![](https://img.shields.io/github/stars/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)](https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)
+[![](https://img.shields.io/github/forks/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)](https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)
+[![](https://img.shields.io/github/license/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)](https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales/blob/main/LICENSE)
+</div>
 ## Deepseek-V3 token fetch
 Go to https://github.com/marketplace/models/azureml-deepseek/DeepSeek-V3-0324 and click Use this model to fetch the token, then add the token to BookStoreSystem/book_store_backend/app/service/user_service.py 
 ```shell
@@ -29,7 +33,7 @@ python3 run2.py
 ```  
 At the end of the run there is the douban_books.csv    
 bookreviews_processed.csv derived from [Kaggle platform public dataset](https://www.kaggle.com/datasets/fengzhujoey/douban-datasetratingreviewside-information)  
-### 启动postgres数据库
+### Starting the postgres database
 ```shell 
 sudo service postgresql start    
 sudo -i -u postgres
@@ -44,7 +48,7 @@ Go to book_store_backend file path, run
 ```shell 
 python3 run.py 
 ```
-### Run frontend 
+### Run the frontend 
 Go to book_store_frontend file path, run 
 ```shell 
 python3 run.py 
