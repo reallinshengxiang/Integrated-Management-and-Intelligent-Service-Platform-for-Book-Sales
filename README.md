@@ -44,7 +44,7 @@ python3 run1.py
 python3 run2.py
 ```  
 At the end of the run there is the douban_books.csv    
-bookreviews_processed.csv derived from [Kaggle platform public dataset](https://www.kaggle.com/datasets/fengzhujoey/douban-datasetratingreviewside-information)  
+bookreviews_processed.csv derived from Kaggle platform [Douban dataset(rating+review+side information)](https://www.kaggle.com/datasets/fengzhujoey/douban-datasetratingreviewside-information)  
 #### Starting the postgres database
 ```shell 
 sudo service postgresql start    
@@ -65,4 +65,4 @@ Go to book_store_frontend file path, run
 ```shell 
 npm run dev
 ``` 
-Just open the link([default](http://127.0.0.1:3000/#/auth/login)) to the browser 
+Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser 
