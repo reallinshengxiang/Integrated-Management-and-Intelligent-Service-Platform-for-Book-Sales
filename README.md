@@ -67,8 +67,8 @@ Go to book_store_frontend file path, run
 ```shell 
 npm run dev
 ``` 
-Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser 
-The following situations were encountered   
+Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser      
+If the following situations were encountered   
 ```shell 
 linshengxiang@sxLin:~/Integrated Management and Intelligent Service Platform for Book Sales/BookStoreSystem/book_store_frontend$ npm run dev
 
