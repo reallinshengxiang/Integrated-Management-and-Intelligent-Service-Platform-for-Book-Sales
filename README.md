@@ -83,8 +83,7 @@ npm cache clean --force
 rm -rf node_modules package-lock.json
 npm install --force --unsafe-perm
 ```   
-Run 
+Run again and it will run successfully!    
 ```shell 
 npm run dev 
 ``` 
-again and it will run successfully!
