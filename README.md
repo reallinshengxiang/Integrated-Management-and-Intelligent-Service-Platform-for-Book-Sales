@@ -66,3 +66,28 @@ Go to book_store_frontend file path, run
 npm run dev
 ``` 
 Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser 
+
+
+遇到如下情况   
+```shell 
+linshengxiang@sxLin:~/Integrated Management and Intelligent Service Platform for Book Sales/BookStoreSystem/book_store_frontend$ npm run dev
+
+> fontend@0.0.0 dev
+> vite
+
+sh: 1: vite: not found
+```    
+运行
+```shell 
+# 清除npm缓存
+npm cache clean --force
+# 删除node_modules和lock文件
+rm -rf node_modules package-lock.json
+# 重新安装依赖并修复权限
+npm install --force --unsafe-perm
+```   
+再次执行
+```shell 
+npm run dev
+``` 
+即可成功运行

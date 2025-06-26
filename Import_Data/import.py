@@ -7,7 +7,7 @@ import urllib.parse
 import re
 import locale
 
-password = urllib.parse.quote_plus("Password@2025!")
+password = urllib.parse.quote_plus("Password!2025")
 DB_CONFIG = f"postgres://linshengxiang:{password}@localhost:5433/bookstoredb"
 CSV_BOOKS_PATH = "douban_books.csv"
 CSV_REVIEWS_PATH = "bookreviews_processed.csv"

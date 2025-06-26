@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/HomeView.vue";
+import Home from "../views/Homeview.vue";
 import LoginView from "@/views/LoginView.vue";
 import store from "@/store";
 
 const routes = [
-  { 
-    path: "/", 
+  {
+    path: "/",
     name: "home",
     redirect: "/index/user"
   },
@@ -16,11 +16,17 @@ const routes = [
     props: true
   },
   {
+    path: "/index/modify/:id",
+    name: "modifyUser",
+    component: Home,
+    props: true
+  },
+  {
     path: "/auth/:login",
     name: "login",
     component: LoginView,
     props: true
-  },
+  }
 ];
 
 const route = createRouter({
@@ -28,14 +34,13 @@ const route = createRouter({
   routes,
 });
 
-route.beforeEach((to, from, next)=>{
-  console.log(to)
-  if(to.name === 'login' || store.state.token){
-    next()
-  }else{
-    next({name:'login',params:{login:"login"}})
+route.beforeEach((to, from, next) => {
+  console.log(to);
+  if (to.name === 'login' || store.state.token) {
+    next();
+  } else {
+    next({ name: 'login', params: { login: "login" } });
   }
+});
 
-})
-
-export default route
+export default route;

@@ -1,26 +1,25 @@
 # book_store_backend/app/service/user_service.py
+
+from sklearn.metrics.pairwise import cosine_similarity
 from app.models import User, Book, Order, Review, db
 from werkzeug.security import generate_password_hash
-from collections import Counter
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
-from collections import defaultdict, Counter
-from sqlalchemy import func
-import math
-from collections import defaultdict, Counter
-from sqlalchemy import func
-import math
-import re
-import jieba
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from collections import defaultdict
+from sqlalchemy import func, desc
+
+
+from app.config import Config
+from app.models import User, UserType
+
 import random
-from sqlalchemy import desc
-import os
+import jieba
+import math
+
 from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
+
+
+
 
 def user_login(user_id, password_hash):
     return True
@@ -192,20 +191,32 @@ def book_recommendation(user_id, limit=5):
     """
     混合推荐系统：结合基于内容和协同过滤的推荐方法
     """
+    print(user_id)
     user = get_user_by_id(user_id)
     
     if not user:
+        print('----not user-----')
         recommended_book_ids = get_top_rated_books_randomly()
         return recommended_book_ids
     orders = Order.query.filter_by(user_id=user_id).all()
+    print('----orders-----')
     reviews = Review.query.filter_by(user_id=user_id).all()
+    print('----reviews-----')
     reviews_book_ids = [review.book_id for review in reviews]
+    print('----reviewedbook_ids-----')
     purchased_book_ids = [item.book_id for order in orders for item in order.items]
+    print('----purchased_book_ids-----')
     all_browsed_book_ids = list(dict.fromkeys([*reviews_book_ids, *purchased_book_ids]))
+    print('----all_browsed_book_ids-----')
     user_ratings = {review.book_id: review.rating for review in reviews}
+    print('----user_ratings-----')
     content_recommendations = recommend_by_content(user_id, user_ratings, all_browsed_book_ids)
-    collaborative_recommendations = recommend_by_collaborative_filtering(user_id, user_ratings, all_browsed_book_ids)
-    combined_recommendations = hybrid_recommendations(content_recommendations, collaborative_recommendations)
+    print('----content_recommendations-----')
+    #collaborative_recommendations = recommend_by_collaborative_filtering(user_id, user_ratings, all_browsed_book_ids)
+    #print('----collaborative_recs-----')
+    combined_recommendations = content_recommendations
+    #combined_recommendations = hybrid_recommendations(content_recommendations, collaborative_recommendations)
+    print('----combined_recs-----')
     recommended_book_ids = [book_id for book_id, _ in combined_recommendations[:limit]]
     recommended_books = Book.query.filter(Book.id.in_(recommended_book_ids)).all()
     if len(recommended_book_ids) < 5 :
@@ -214,8 +225,8 @@ def book_recommendation(user_id, limit=5):
     return recommended_book_ids
 
 def deepseek_response(user_input):
-    os.environ["GITHUB_TOKEN"] = "*"
-    token = os.environ["GITHUB_TOKEN"] 
+    token = Config.GITHUB_TOKEN
+    print('token:',token)
     endpoint = "https://models.github.ai/inference"
     model = "deepseek/DeepSeek-V3-0324"
     client = ChatCompletionsClient(
@@ -235,3 +246,7 @@ def deepseek_response(user_input):
     print(response.choices[0].message.content)
     return response.choices[0].message.content
     
+def get_user_count():
+    admin_count = User.query.filter_by(user_type=UserType.admin).count()
+    customer_count = User.query.filter_by(user_type=UserType.customer).count()
+    return {'admin_count': admin_count, 'customer_count': customer_count}

@@ -2,14 +2,17 @@
 import HomeHeaderBar from "@/conponents/HomeHeaderBar.vue";
 import MenuBar from "@/conponents/MenuBar.vue";
 import Footer from "@/conponents/Footer.vue";
+import UserView from "@/conponents/tables/UserView.vue";
+import BookView from "@/conponents/tables/BookView.vue";
+import OrderView from "@/conponents/tables/OrderView.vue";
+import BookDetailView from "@/conponents/tables/BookDetailView.vue";
+import CreateOrderView from "@/conponents/tables/CreateOrderView.vue";
+import AIhelperView from "@/conponents/tables/AIhelperView.vue";
+import AboutWe from "@/conponents/tables/AboutWe.vue";
 import {onBeforeUpdate, computed} from "vue";
 import {useRoute, useRouter} from "vue-router";
-import UserView from "@/conponents/tables/UserView.vue";
-import AuthorView from "../conponents/tables/AuthorView.vue";
-import BookView from "../conponents/tables/BookView.vue";
-import BorrowView from "../conponents/tables/BorrowView.vue";
-import AboutWe from "../conponents/tables/AboutWe.vue";
-import BookCopyView from "@/conponents/tables/BookCopyView.vue";
+import ModifyUserView from '@/conponents/tables/ModifyUserView.vue';
+
 
 
 const route = useRoute();
@@ -29,29 +32,34 @@ let getQueryPage = computed(()=>{
 onBeforeUpdate(()=>{
 })
 
-const getView = computed(()=>{
-  if(getQueryPage.value === 'user'){
+const getView = computed(() => {
+  if (getQueryPage.value === 'user') {
     return UserView;
   }
-  if(getQueryPage.value === 'author'){
-    return AuthorView;
+  if (getQueryPage.value === 'modify') {
+    return ModifyUserView;
   }
-  if(getQueryPage.value === 'book'){
+  if (getQueryPage.value === 'book') {
     return BookView;
   }
-  if(getQueryPage.value === 'book-copy'){
-    return BookCopyView;
+  if (getQueryPage.value === 'order') {
+    return OrderView;
   }
-  if(getQueryPage.value === 'borrow'){
-    return BorrowView;
+  if (getQueryPage.value === 'bookdetail') {
+    return BookDetailView;
   }
-  if(getQueryPage.value === 'about'){
+  if (getQueryPage.value === 'ai-helper') {
+    return AIhelperView;
+  }
+  if (getQueryPage.value === 'create-order') {
+    return CreateOrderView;
+  }
+  if (getQueryPage.value === 'about') {
     return AboutWe;
   }
-})
-
+});
 </script>
-
+  
 <template>
   <el-container class="">
 

@@ -56,21 +56,25 @@ onBeforeMount(()=>{
         <el-icon><User /></el-icon>
         <span>用户管理</span>
       </el-menu-item>
-      <el-menu-item index="/index/author">
-        <el-icon><EditPen /></el-icon>
-        <span>作者管理</span>
-      </el-menu-item>
       <el-menu-item index="/index/book">
-        <el-icon><Collection /></el-icon>
-        <span>图书管理</span>
+        <el-icon><EditPen /></el-icon>
+        <span>图书</span>
       </el-menu-item>
-      <el-menu-item index="/index/book-copy">
+      <el-menu-item index="/index/order">
         <el-icon><Collection /></el-icon>
-        <span>图书副本管理</span>
+        <span>订单管理</span>
       </el-menu-item>
-      <el-menu-item index="/index/borrow">
+      <el-menu-item index="/index/bookdetail">
         <el-icon><Share /></el-icon>
-        <span>租借管理</span>
+        <span>图书详情</span>
+      </el-menu-item>
+      <el-menu-item index="/index/ai-helper">
+        <el-icon><Location /></el-icon>
+        <span>AI助手</span>
+      </el-menu-item>
+      <el-menu-item index="/index/create-order">
+        <el-icon><Collection /></el-icon>
+        <span>创建订单</span>
       </el-menu-item>
       <el-menu-item index="/index/about">
         <el-icon><Position /></el-icon>
@@ -100,9 +104,6 @@ onBeforeMount(()=>{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  >span{}
-
 }
 
 .menu-bar{

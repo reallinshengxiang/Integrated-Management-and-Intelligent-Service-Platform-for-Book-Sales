@@ -26,7 +26,7 @@ const email_url = 'mailto:?subject=提示管理系统！&body='+location.href
 
 <template>
   <div class="footer">
-      <div>@2023 . library manage system</div>
+      <div>@2025 . Integrated Management and Intelligent Service Platform for Book Sales</div>
       <el-popover ref="popoverRef" placement="top" :width="400" trigger="hover" >
         <template #reference>
           <el-button style="margin-right: 16px" type="primary" text>Share</el-button>

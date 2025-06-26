@@ -20,19 +20,26 @@ def create_order(data):
     for item_data in order_items_data:
         book_id = item_data.get('book_id')
         quantity = item_data.get('quantity')
+        print('-------------')
+        print('handle item', book_id)
         book = Book.query.get(book_id)
-        if book and book.stock_quantity >= quantity:
-            total_amount += book.price * quantity
-            order_item = OrderItem(
-                book_id=book_id,
-                quantity=quantity,
-                unit_price=book.price
-            )
-            order_items.append(order_item)
-            book.stock_quantity -= quantity
-        else:
+        total_amount += book.price * quantity
+        order_item = OrderItem(
+            book_id=book_id,
+            quantity=quantity,
+            unit_price=book.price
+        )
+        try:
+            db.session.add(order_item)
+        except:
+            print('?????????????????????')
+            db.session.rollback()
             return None
+        order_items.append(order_item)
 
+    print('###########')    
+    print('order_items:', order_items)
+    
     new_order = Order(
         user_id=user_id,
         total_amount=total_amount,

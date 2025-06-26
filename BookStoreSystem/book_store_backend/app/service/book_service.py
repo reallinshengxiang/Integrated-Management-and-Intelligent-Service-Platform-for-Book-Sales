@@ -41,6 +41,14 @@ def update_book(book_id, data):
         return book
     return None
 
+def search_books_by_title(title_substring):
+    return Book.query.filter(Book.title.contains(title_substring)).all()
+
+
+def search_books_by_isbn(isbn_substring):
+    return Book.query.filter(Book.isbn.contains(isbn_substring)).all()
+
+
 def delete_book(book_id):
     book = Book.query.get(book_id)
     if book:

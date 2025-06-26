@@ -13,11 +13,11 @@ def register_commands(app: Flask):
         password = input("请输入管理员密码: ")
         
         if User.query.filter_by(username=username).first():
-            print(f"错误: 用户名 '{username}' 已存在")
+            # print(f"错误: 用户名 '{username}' 已存在")
             return
         
         if User.query.filter_by(email=email).first():
-            print(f"错误: 邮箱 '{email}' 已存在")
+            # print(f"错误: 邮箱 '{email}' 已存在")
             return
         
         admin = User(
@@ -28,4 +28,4 @@ def register_commands(app: Flask):
         admin.set_password(password)
         admin.save()
         
-        print(f"管理员账户 '{username}' 创建成功!")
+        # print(f"管理员账户 '{username}' 创建成功!")

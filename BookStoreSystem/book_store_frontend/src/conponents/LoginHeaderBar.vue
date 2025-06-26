@@ -5,7 +5,7 @@
 <template>
   <div class="home-header-bar">
       <span class="title">
-        账户
+        登陆 or 注册
       </span>
   </div>
 </template>

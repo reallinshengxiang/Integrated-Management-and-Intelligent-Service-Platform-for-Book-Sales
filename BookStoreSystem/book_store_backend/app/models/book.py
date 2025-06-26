@@ -15,7 +15,7 @@ class Book(BaseModelMixin, db.Model):
     price = db.Column(DECIMAL(10, 2))
     description = db.Column(db.Text)
     cover_link = db.Column(db.String(255))
-    rating = db.Column(db.DECIMAL(10, 2))
+    rating = db.Column(DECIMAL(10, 2))
     
     publisher = db.relationship("Publisher", backref="books")
     reviews = db.relationship("Review", backref="book", lazy=True)

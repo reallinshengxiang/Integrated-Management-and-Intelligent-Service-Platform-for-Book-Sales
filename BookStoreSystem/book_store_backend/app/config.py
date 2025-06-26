@@ -9,27 +9,27 @@ class Config:
     # 应用配置
     DEBUG = True
     TESTING = False
-    SECRET_KEY = os.environ.get('SECRET_KEY', '789f2c8997334283a271999d8d183796')
-    
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     # 数据库配置
+    
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL', 
-        'postgresql://postgres:Zxy_234338@localhost:5432/bookstoredb'
+        'DATABASE_URL',
     )
+    SQLALCHEMY_DATABASE_URI = 'postgresql://linshengxiang:Password!2025@localhost:5433/bookstoredb'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ECHO = False  # 调试时显示SQL语句
-    
+    SQLALCHEMY_ECHO = False
     # JWT配置
-    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', '689a2c997334283a271999d8d183796')
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
     JWT_ACCESS_TOKEN_EXPIRES = 3600  # 1小时
-    
+    GITHUB_TOKEN = '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'
+    GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
     # 其他配置
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER', 'uploads')
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB
-
+        
 class DevelopmentConfig(Config):
-    DEBUG = True
-    SQLALCHEMY_ECHO = True
+    DEBUG = False
+    SQLALCHEMY_ECHO = False
 
 class ProductionConfig(Config):
     DEBUG = False

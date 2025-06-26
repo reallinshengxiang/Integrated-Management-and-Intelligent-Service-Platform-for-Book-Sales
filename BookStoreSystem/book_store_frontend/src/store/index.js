@@ -4,9 +4,10 @@ import createPersistedState from 'vuex-persistedstate'
 const state_set = {
   token: '',
   username: '',
-  is_manage: false,
-  head_img: "",
-  id:""
+  id: "",
+  
+  modifyid: -1,
+  detailid: 92555
 }
 
 const createMutations = ()=>{
@@ -29,20 +30,22 @@ const createActions = ()=>{
   return res;
 }
 
-export default createStore({
-  state:state_set,
+const store = createStore({
+  state: state_set,
   mutations: {
     ...createMutations()
   },
   actions: {
     reset(ctx){
-      ctx.commit('username',"")
-      ctx.commit('id',"")
-      ctx.commit('token',"")
-      ctx.commit('head_img',"")
-      ctx.commit('is_manage',false)
+      ctx.commit('username', "")
+      ctx.commit('id', "")
+      ctx.commit('token', "")
+      // 重置新变量
+      ctx.commit('modifyid', -1)
     },
     ...createActions()
   },
   plugins: [createPersistedState()]
 })
+
+export default store;

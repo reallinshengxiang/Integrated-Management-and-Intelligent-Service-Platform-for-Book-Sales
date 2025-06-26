@@ -42,26 +42,32 @@ const rules = reactive({
 
 const submitForm = (formEl) => {
   if (!formEl) return
+  console.log('开始登陆')
   formEl.validate((valid) => {
     if (valid) {
-      auth.login(ruleForm).then(({data})=>{
-        if(data.code !== 200){
-          ElMessage.error(data.msg)
-          return
+      console.log('登录表合法')
+      auth.login(ruleForm).then((response) => {
+        // 假设 response 是实际的响应对象
+        const data = response.data;
+        console.log('收到反响', data);
+        // 这里假设后端返回的状态码通过 HTTP 状态码判断
+        if (response.status !== 200) {
+          console.log('错误处理')
+          ElMessage.error('登录失败，请检查用户名和密码');
+          return;
         }
-        data = data.data
-        store.dispatch('set_username',data.username)
-        store.dispatch('set_id',data.id)
-        store.dispatch('set_token',data.token.code)
-        store.dispatch('set_head_img',data.head_img)
-        store.dispatch('set_is_manage',data.is_manager)
+        console.log('登陆验证成功')
+        store.dispatch('set_username', ruleForm.username);
+        store.dispatch('set_id', data.user_id);
+        store.dispatch('set_token', data.token);
         ElMessage.success("登录成功")
         router.push({name:'home'});
-
-      }).catch(err=>{
+      }).catch(err => {
+        console.log('报错')
         ElMessage.error(String(err))
       })
     } else {
+      console.log('表单问题')
       ElMessage.error("检查表单填写")
       return false
     }
