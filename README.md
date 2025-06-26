@@ -17,13 +17,15 @@ The system adopts a layered architecture design, which is mainly divided into th
 - Database layer Stores all the data of the system and uses PostgreSQL as the database management system. The database contains several tables such as user information, book information, order information, comment information and so on.    
 ## Quick start
 ### Deepseek-V3 token fetch
-Go to [Github Marketplace](https://github.com/marketplace/models/azureml-deepseek/DeepSeek-V3-0324) and click Use this model to fetch the token, then add the token to BookStoreSystem/book_store_backend/app/service/user_service.py 
+Go to [Github Marketplace](https://github.com/marketplace/models/azureml-deepseek/DeepSeek-V3-0324) and click Use this model to fetch the token, then add the token to BookStoreSystem/.env
 ```shell
-def deepseek_response(user_input):
-    os.environ["GITHUB_TOKEN"] = "*"
-    token = os.environ["GITHUB_TOKEN"] 
+SECRET_KEY=get_your_SECRET_KEY
+JWT_SECRET_KEY=get_your_JWT_SECRET_KEY
+DATABASE_URL=get_your_postgresql_DATABASE_URL
+UPLOAD_FOLDER=uploads
+GITHUB_TOKEN=get_your_Deepseek-V3_token
 ```     
-Just replace "*" with the fetched token   
+Just replace get_your_Deepseek-V3_token with the fetched token   
 ### Local database environment configuration   
 #### PostgreSQL Installation 
 Go to the [Download page](https://www.postgresql.org/download/) of postgsql official website, choose the appropriate version to download and install          
@@ -66,9 +68,7 @@ Go to book_store_frontend file path, run
 npm run dev
 ``` 
 Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser 
-
-
-遇到如下情况   
+The following situations were encountered   
 ```shell 
 linshengxiang@sxLin:~/Integrated Management and Intelligent Service Platform for Book Sales/BookStoreSystem/book_store_frontend$ npm run dev
 
@@ -77,17 +77,14 @@ linshengxiang@sxLin:~/Integrated Management and Intelligent Service Platform for
 
 sh: 1: vite: not found
 ```    
-运行
+run  
 ```shell 
-# 清除npm缓存
 npm cache clean --force
-# 删除node_modules和lock文件
 rm -rf node_modules package-lock.json
-# 重新安装依赖并修复权限
 npm install --force --unsafe-perm
 ```   
-再次执行
+Run 
 ```shell 
-npm run dev
+npm run dev 
 ``` 
-即可成功运行
+again and it will run successfully!
