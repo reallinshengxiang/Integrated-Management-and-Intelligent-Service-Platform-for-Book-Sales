@@ -1,5 +1,5 @@
 <h1 align="center">
-Integrated Management and Intelligent Service Platform for Book Sales   <a href="https://www.producthunt.com/products/github-187?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-github&#0045;a41a339b&#0045;8021&#0045;445f&#0045;99a8&#0045;52daa25145ef" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1018217&theme=dark&t=1758628116694" alt="GitHub - Efficient&#0032;book&#0032;sales&#0032;platform&#0032;powered&#0032;by&#0032;Flask&#0032;&#0038;&#0032;PostgreSQL | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>   
+Integrated Management and Intelligent Service Platform for Book Sales 
 </h1>
 
 <div align="center">
@@ -7,7 +7,9 @@ Integrated Management and Intelligent Service Platform for Book Sales   <a href=
 [![](https://img.shields.io/github/forks/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)](https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)
 [![](https://img.shields.io/github/license/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales)](https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales/blob/main/LICENSE)
 </div>
-
+<div align="center">
+ <a href="https://www.producthunt.com/products/github-187?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-github&#0045;a41a339b&#0045;8021&#0045;445f&#0045;99a8&#0045;52daa25145ef" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1018217&theme=dark&t=1758628116694" alt="GitHub - Efficient&#0032;book&#0032;sales&#0032;platform&#0032;powered&#0032;by&#0032;Flask&#0032;&#0038;&#0032;PostgreSQL | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>   
+</div>
 This project is a Flask-based framework for small and medium-sized book sales enterprises or online bookstore book management system , the user scale covers from a few hundred to thousands of customer groups , it has a user management , book management , order management , review management and other functions . The system uses SQLAlchemy to interact with PostgreSQL database, builds RESTful API with the help of Flask-RESTful, and uses Flask-JWT-Extended to realize authentication.       
 The system adopts a layered architecture design, which is mainly divided into the following levels: 
 - The presentation layer (API layer) is responsible for receiving requests from the client and returning the processing results to the client. The Flask-RESTful framework is used to build the RESTful API, providing interfaces for user authentication, book management, order management, etc.    
