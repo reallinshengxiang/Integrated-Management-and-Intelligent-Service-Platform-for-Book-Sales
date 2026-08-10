@@ -2,11 +2,12 @@
 Integrated Management and Intelligent Service Platform for Book Sales 
 </h1>
 
+<!--
 <div align="center">
  <a href="https://www.producthunt.com/products/github-187?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-github&#0045;a41a339b&#0045;8021&#0045;445f&#0045;99a8&#0045;52daa25145ef" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1018217&theme=dark&t=1758628116694" alt="GitHub - Efficient&#0032;book&#0032;sales&#0032;platform&#0032;powered&#0032;by&#0032;Flask&#0032;&#0038;&#0032;PostgreSQL | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>   
 </div>
-
-This project is a Flask-based framework for small and medium-sized book sales enterprises or online bookstore book management system , the user scale covers from a few hundred to thousands of customer groups , it has a user management , book management , order management , review management and other functions . The system uses SQLAlchemy to interact with PostgreSQL database, builds RESTful API with the help of Flask-RESTful, and uses Flask-JWT-Extended to realize authentication.       
+-->
+This project is a Flask-based framework for small and medium-sized book sales enterprises or online bookstore book management system, the user scale covers from a few hundred to thousands of customer groups, it has a user management, book management, order managemen, review management and other functions. The system uses SQLAlchemy to interact with PostgreSQL database, builds RESTful API with the help of Flask-RESTful, and uses Flask-JWT-Extended to realize authentication.       
 The system adopts a layered architecture design, which is mainly divided into the following levels: 
 - The presentation layer (API layer) is responsible for receiving requests from the client and returning the processing results to the client. The Flask-RESTful framework is used to build the RESTful API, providing interfaces for user authentication, book management, order management, etc.    
 - The business logic layer (service layer) handles user authentication, book management, order management, and so on. The business logic layer (service layer) handles specific business logic, such as the creation, update and deletion of books, and the creation, update and deletion of orders. The service layer calls the interface of the data access layer to realize data persistence.    
@@ -32,7 +33,7 @@ Based on python3, download the corresponding installation package can be, will n
 ### Run   
 #### Clone repository to local    
 ```shell
-git clone https://github.com/reallinshengxiang/Integrated-Management-and-Intelligent-Service-Platform-for-Book-Sales.git
+git clone https://github.com/Shengxiang-Lin/IMIS-BS.git
 ```     
 #### Data set fetch (This step can be omitted, douban_books.csv and bookreviews_processed.csv are already in the Import_Data folder)     
 Go to the Crawling file path and run   
@@ -67,7 +68,7 @@ npm run dev
 Just open the link ([default](http://127.0.0.1:3000/#/auth/login)) to the browser      
 If the following situations were encountered   
 ```shell 
-linshengxiang@sxLin:~/Integrated Management and Intelligent Service Platform for Book Sales/BookStoreSystem/book_store_frontend$ npm run dev
+:~/IMIS-BS/BookStoreSystem/book_store_frontend$ npm run dev
 
 > fontend@0.0.0 dev
 > vite
